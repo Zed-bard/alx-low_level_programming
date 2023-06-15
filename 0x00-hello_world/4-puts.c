@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - a C program that prints exactly Programming is like building a multilingual puzzle
+ * main - Entry point of the program
  *
  * This function prints the message "Programming is like building a multilingual puzzle"
  * to the console using the puts() function.
