@@ -1,0 +1,1 @@
+The purpose of this script is to preprocess the C source code and generate an intermediate representation that can be further compiled into an executable file. This process helps to optimize and simplify the code, making it more efficient and easier to maintain.
