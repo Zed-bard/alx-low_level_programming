@@ -1,10 +1,10 @@
-#0x07. C - Even more pointers, arrays and strings
+0x07. C - Even more pointers, arrays and strings
 
-##OVERVIEWS OF THE PROJECTS
+OVERVIEWS OF THE PROJECTS
 This repository contains C programs that demonstrate the use of pointers, 
 arrays, and strings in the C programming language. It includes various
  exercises and examples to solidify the understanding of these concepts.
-#Directories
+Directories
 0x07-pointers_arrays_strings: This directory contains all the C programs
  related to this project given by ALX-SE.
 | Program               | Description                                                                                                 |
