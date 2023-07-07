@@ -10,11 +10,11 @@ void _puts(char *str)
 }
 
 /**
- * main - Entry point
+ * other_main - Entry point
  *
  * Return: Always 0 (Success)
  */
-int main(void)
+int other_main(void)
 {
 	_puts("\"Programming is like building a multilingual puzzle");
 	return (0);
