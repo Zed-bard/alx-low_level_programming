@@ -14,6 +14,35 @@ Here, `size` is the number of bytes of memory to be allocated. The `malloc` func
 It is important to note that `malloc` does not initialize the allocated memory. It simply reserves a block of memory of the specified size. Therefore, it is necessary to explicitly initialize the memory before using it.
 
 The allocated memory should be released when it is no longer needed to avoid memory leaks. This can be done using the `free` function, which is also declared in the `stdlib.h` header file.
+# Guidelines  and requirements for the project tools, technologies
+1. Editors: vi, vim, emacs
+   - You can use any of these editors to write your code.
+
+2. Compilation Environment:
+   - Operating System: Ubuntu 20.04 LTS
+   - Compiler: gcc
+   - Compiler Options: -Wall -Werror -Wextra -pedantic -std=gnu89
+     (These options enable additional warnings and treat warnings as errors)
+
+3. File Requirements:
+   - All files should end with a new line.
+4. Coding Style:
+   - Code should follow the Betty style.
+   - Style checking will be done using betty-style.pl and betty-doc.pl.
+
+5. Coding Restrictions:
+   - Global variables are not allowed.
+   - Each file should have no more than 5 functions.
+   - Only the following C standard library functions are allowed: malloc and free.
+   - Functions like printf, puts, calloc, realloc, etc., are forbidden.
+   - You are allowed to use _putchar function.
+
+6. Main File:
+   - Examples of main.c files are provided, but you don't need to include them in your repo.
+   - The provided main.c files might differ from the ones used during compilation.
+7. Header File:
+   - Create a header file called main.h.
+   - Include prototypes of all your functions and the _putchar function in this file.
 
 ### List of Projects and Tasks in this session 
 
