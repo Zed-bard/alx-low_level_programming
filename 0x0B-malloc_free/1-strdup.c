@@ -2,10 +2,14 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * _strdup - duplicate to new memory space location
- * @str: char
- * Return: 0
+ * _strdup - Duplicates a string to a new memory space location.
+ * @str: The string to be duplicated.
+ *
+ * Return: A pointer to the newly allocated memory
+ * containing the duplicated string,
+ *         or NULL if memory allocation fails or if str is NULL.
  */
+
 char *_strdup(char *str)
 {
 	char *aaa;
