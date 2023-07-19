@@ -1,5 +1,5 @@
 #ifndef CALC_HEADER
-#define CALC_HEADE
+#define CALC_HEADER
 /**
  * struct op - A struct op.
  * @op: The operator.
