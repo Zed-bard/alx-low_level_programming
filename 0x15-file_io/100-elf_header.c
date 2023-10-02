@@ -298,25 +298,19 @@ o = open(argv[1], O_RDONLY);
 	dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 	exit(98);
 	}
+check_elf(header->e_ident);
+printf("ELF Header:\n");
+print_magic(header->e_ident);
+print_class(header->e_ident);
+print_data(header->e_ident);
+print_version(header->e_ident);
+print_osabi(header->e_ident);
+print_abi(header->e_ident);
+print_type(header->e_type, header->e_ident);
+print_entry(header->e_entry, header->e_ident);
 
-/**
- * Description: If the Format is not an ELF File or
- * checks if the file is an ELF file, prints out the ELF header, 
- * frees the memory allocated for the ELF header, and closes the file.
- */
-		check_elf(header->e_ident);
-		printf("ELF Header:\n");
-		print_magic(header->e_ident);
-		print_class(header->e_ident);
-		print_data(header->e_ident);
-		print_version(header->e_ident);
-		print_osabi(header->e_ident);
-		print_abi(header->e_ident);
-		print_type(header->e_type, header->e_ident);
-		print_entry(header->e_entry, header->e_ident);
-
-		free(header);
-		close_elf(o);
-		return (0);
+free(header);
+close_elf(o);
+return (0);
 }
 
