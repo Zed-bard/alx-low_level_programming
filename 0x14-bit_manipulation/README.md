@@ -59,6 +59,3 @@ Remember to replace `binary_to_uint` with the appropriate filename for the funct
 ## AUTHOUR
 participant of alx student `Zerihun shiferwa`
 
-## License
-
-This project is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
