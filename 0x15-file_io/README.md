@@ -1,8 +1,4 @@
 # 0x15. C - File I/O
-
-## Overview
-This repository contains the source code for a C programming project focused on file I/O operations. The project's main goal is to familiarize you with file descriptors and various file-related system calls in the Unix-like environment. By the end of this project, you should be comfortable with creating, opening, closing, reading, and writing files, as well as understanding file descriptors, file permissions, and system calls.
-
 ## Learning Objectives
 By completing this project, you will achieve the following learning objectives:
 - Learn to search for relevant information online.
@@ -39,10 +35,19 @@ Always prefer using symbolic constants (POSIX) versus numbers when applicable, e
 ### Read or Watch
 - File descriptors
 - [C Programming in Linux Tutorial #024 - open() read() write() Functions](https://www.youtube.com/watch?v=Fz6xvdX__Ko)
+Certainly, here's a brief description of each of the actions you mentioned and whether they typically relate to manual (Man) or help/documentation (Help) aspects:
 
-### Man or Help
-- `open`
-- `close`
-- `read`
-- `write`
-- `dprintf`
+1. `open` (Help):
+   - This action often refers to opening files, directories, or other resources in a computer context. You might find documentation or help on how to use the `open` command or function in your operating system or programming language.
+
+2. `close` (Help):
+   - The `close` action typically involves closing files, connections, or other resources. Documentation or help resources can provide guidance on how to correctly use the `close` operation in different contexts, such as file handling or network connections.
+
+3. `read` (Help):
+   - The `read` action is commonly used to retrieve data from files, input streams, or other sources. Documentation or help materials can explain how to perform the `read` operation effectively, including usage and potential options.
+
+4. `write` (Help):
+   - The `write` action often involves writing data to files, output streams, or other destinations. You can typically find documentation or help guides on how to use the `write` operation correctly and efficiently.
+
+5. `dprintf` (Help):
+    `dprintf` is a function found in the C programming language and is typically used to format and print data to a file descriptor. 
