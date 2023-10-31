@@ -22,8 +22,8 @@ char *create_buffer(char *file)
 	if (buffer == NULL)
 	{
 	dprintf(STDERR_FILENO,
-		"Error: unable write to %s\n", file);
-	exit(91);
+		"Error: Can't write to %s\n", file);
+	exit(99);
 	}
 
 	return (buffer);
@@ -41,7 +41,7 @@ void close_file(int fd)
 
 	if (x == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: unable close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -55,7 +55,7 @@ void close_file(int fd)
  *
  * Description: If the argument count is invalid - exit code 97.
  * If file_from does not exist  - exit code 98.
- * If file_to cannot be created - exit code 91.
+ * If file_to cannot be created - exit code 99.
  * If file_to or _from cannot be closed - exit code 100.
  */
 int main(int argc, char *argv[])
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: copy file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 		if (from == -1 || y == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: unable read from file %s\n", argv[1]);
+				"Error: Can't read from file %s\n", argv[1]);
 			free(buffer);
 			exit(98);
 		}
@@ -87,9 +87,9 @@ int main(int argc, char *argv[])
 		if (to == -1 || z == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: unable write to %s\n", argv[2]);
+				"Error: Can't write to %s\n", argv[2]);
 			free(buffer);
-			exit(91);
+			exit(99);
 		}
 
 		y = read(from, buffer, 1024);
