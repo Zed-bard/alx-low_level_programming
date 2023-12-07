@@ -1,105 +1,127 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <time.h>
 
 /**
- * findLargestChar - Finds the largest ASCII value in the username
- * @usrn: username
- * @len: length of the username
+ * f4 - finds the biggest number
  *
- * Return: the largest ASCII value
+ * @usrn: username
+ * @len: length of username
+ * Return: the biggest number
  */
-char findLargestChar(char *usrn, int len)
+int f4(char *usrn, int len)
 {
-	char largest = usrn[0];
+	int ch;
+	int vch;
+	unsigned int rand_num;
 
-	for (int i = 1; i < len; i++)
+	ch = *usrn;
+	vch = 0;
+
+	while (vch < len)
 	{
-		if (usrn[i] > largest)
-		{
-			largest = usrn[i];
-		}
+		if (ch < usrn[vch])
+			ch = usrn[vch];
+		vch += 1;
 	}
 
-	return (largest);
+	srand(ch ^ 14);
+	rand_num = rand();
+
+	return (rand_num & 63);
 }
 
 /**
- * multiplyChars - Multiplies each character's ASCII value in the username
- * @usrn: username
- * @len: length of the username
+ * f5 - multiplies each char of username
  *
- * Return: the product of the multiplication
+ * @usrn: username
+ * @len: length of username
+ * Return: multiplied char
  */
-int multiplyChars(char *usrn, int len)
+int f5(char *usrn, int len)
 {
-	int result = 0;
+	int ch;
+	int vch;
 
-	for (int i = 0; i < len; i++)
+	ch = vch = 0;
+
+	while (vch < len)
 	{
-		result += usrn[i] * usrn[i];
+		ch = ch + usrn[vch] * usrn[vch];
+		vch += 1;
 	}
 
-	return result;
+	return (((unsigned int)ch ^ 239) & 63);
 }
 
 /**
- * generateRandomNumber - Generates a random number based on the length of the username
- * @usrn: username
+ * f6 - generates a random char
  *
- * Return: the generated random number
+ * @usrn: username
+ * Return: a random char
  */
-int generateRandomNumber(char *usrn)
+int f6(char *usrn)
 {
-	return rand() % (*usrn + 1);
+	int ch;
+	int vch;
+
+	ch = vch = 0;
+
+	while (vch < *usrn)
+	{
+		ch = rand();
+		vch += 1;
+	}
+
+	return (((unsigned int)ch ^ 229) & 63);
 }
 
 /**
  * main - Entry point
+ *
  * @argc: arguments count
  * @argv: arguments vector
- *
  * Return: Always 0
  */
 int main(int argc, char **argv)
 {
-	if (argc != 2)
-	{
-		printf("Usage: %s <username>\n", argv[0]);
-		return (1);
-	}
-
 	char keygen[7];
-	int len = strlen(argv[1]);
+	int len, ch, vch;
+	long alph[] = {
+		0x3877445248432d41, 0x42394530534e6c37, 0x4d6e706762695432,
+		0x74767a5835737956, 0x2b554c59634a474f, 0x71786636576a6d34,
+		0x723161513346655a, 0x6b756f494b646850 };
+	(void) argc;
 
-	/* Part 1: Find the largest ASCII value in the username */
-	keygen[0] = findLargestChar(argv[1], len);
-
-	/* Part 2: Sum of ASCII values in the username */
-	int sum = 0;
-	for (int i = 0; i < len; i++)
+	for (len = 0; argv[1][len]; len++)
+		;
+	/* ----------- f1 ----------- */
+	keygen[0] = ((char *)alph)[(len ^ 59) & 63];
+	/* ----------- f2 ----------- */
+	ch = vch = 0;
+	while (vch < len)
 	{
-		sum += argv[1][i];
+		ch = ch + argv[1][vch];
+		vch = vch + 1;
 	}
-	keygen[1] = sum % 64;
-
-	/* Part 3: Multiply each character's ASCII value in the username */
-	int product = multiplyChars(argv[1], len);
-	keygen[2] = (product ^ 85) % 64;
-
-	/* Part 4: Find the biggest number using a different approach */
-	keygen[3] = findLargestChar(argv[1], len);
-
-	/* Part 5: Multiply each char of username */
-	keygen[4] = multiplyChars(argv[1], len) % 64;
-
-	/* Part 6: Generate a random number based on the length of the username */
-	keygen[5] = generateRandomNumber(argv[1]) % 64;
-
+	keygen[1] = ((char *)alph)[(ch ^ 79) & 63];
+	/* ----------- f3 ----------- */
+	ch = 1;
+	vch = 0;
+	while (vch < len)
+	{
+		ch = argv[1][vch] * ch;
+		vch = vch + 1;
+	}
+	keygen[2] = ((char *)alph)[(ch ^ 85) & 63];
+	/* ----------- f4 ----------- */
+	keygen[3] = ((char *)alph)[f4(argv[1], len)];
+	/* ----------- f5 ----------- */
+	keygen[4] = ((char *)alph)[f5(argv[1], len)];
+	/* ----------- f6 ----------- */
+	keygen[5] = ((char *)alph)[f6(argv[1])];
 	keygen[6] = '\0';
-
-	printf("%s\n", keygen);
-
+	for (ch = 0; keygen[ch]; ch++)
+		printf("%c", keygen[ch]);
 	return (0);
 }
-
